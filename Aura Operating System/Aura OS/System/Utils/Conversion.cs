@@ -61,6 +61,31 @@ namespace Aura_OS.System.Utils
             return result;
         }
 
+        //public static int HexToDec(string x)
+        //{
+        //    int result = 0;
+        //    int count = x.Length - 1;
+        //    for (int i = 0; i < x.Length; i++)
+        //    {
+        //        int temp = 0;
+        //        switch (x[i])
+        //        {
+        //            case 'A': temp = 10; break;
+        //            case 'B': temp = 11; break;
+        //            case 'C': temp = 12; break;
+       //             case 'D': temp = 13; break;
+       //             case 'E': temp = 14; break;
+       //             case 'F': temp = 15; break;
+       //             default: temp = -48 + (int)x[i]; break; // -48 because of ASCII
+       //         }
+
+                //result += temp * (int)(Math.Pow(16, count));
+        //        count--;
+        //    }
+
+        //    return result;
+        //}
+
     }
 }
 

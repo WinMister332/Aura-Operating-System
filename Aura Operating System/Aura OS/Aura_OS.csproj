@@ -14,6 +14,8 @@
     <Bochs_StackCorruptionDetectionLevel>MethodFooters</Bochs_StackCorruptionDetectionLevel>
     <Bochs_Name>Aura_OSBoot</Bochs_Name>
     <Bochs_IgnoreDebugStubAttribute>False</Bochs_IgnoreDebugStubAttribute>
+    <IntelEdison_StackCorruptionDetectionLevel>MethodFooters</IntelEdison_StackCorruptionDetectionLevel>
+    <IntelEdison_IgnoreDebugStubAttribute>False</IntelEdison_IgnoreDebugStubAttribute>
   </PropertyGroup>
   <PropertyGroup>
     <BinFormat>Bin</BinFormat>
@@ -111,11 +113,16 @@
     <Reference Include="IL2CPU.API">
       <HintPath>..\..\..\..\..\AppData\Roaming\Cosmos User Kit\Build\IL2CPU\IL2CPU.API.dll</HintPath>
     </Reference>
+    <Reference Include="XSharp">
+      <HintPath>..\..\..\..\..\AppData\Roaming\Cosmos User Kit\Build\IL2CPU\XSharp.dll</HintPath>
     <Reference Include="IL2CPU">
       <HintPath>..\..\..\..\..\AppData\Roaming\Cosmos User Kit\Build\IL2CPU\IL2CPU.dll</HintPath>
     </Reference>
     <Reference Include="XSharp.Assembler">
       <HintPath>..\..\..\..\..\AppData\Roaming\Cosmos User Kit\Build\IL2CPU\XSharp.Assembler.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PlugsReference Include="$(MSBuildProjectDirectory)\..\Aura_Plugs\bin\Debug\netstandard2.0\Aura_Plugs.dll" />
   </ItemGroup>
 </Project>

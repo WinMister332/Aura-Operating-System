@@ -8,7 +8,7 @@ using System;
 
 namespace Aura_OS.System.Utils
 {
-    class CommandsHistory
+    public class CommandsHistory
     {
         public static int CHIndex = 0;
 

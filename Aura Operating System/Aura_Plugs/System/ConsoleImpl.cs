@@ -11,11 +11,11 @@ using System.Text;
 using Aura_OS.Shell.cmdIntr;
 using Aura_OS.System.Utils;
 using Cosmos.System;
-using IL2CPU.API;
 using IL2CPU.API.Attribs;
 using Sys = System;
+using Aura_OS;
 
-namespace Aura_OS.System.Shell
+namespace Aura_Plugs
 {
     [Plug(Target = typeof(global::System.Console))]
     public static class ConsoleImpl
@@ -25,9 +25,9 @@ namespace Aura_OS.System.Shell
         private static Encoding ConsoleInputEncoding = Encoding.ASCII;
         private static Encoding ConsoleOutputEncoding = Encoding.ASCII;
 
-        private static Console GetConsole()
+        private static Aura_OS.System.Shell.Console GetConsole()
         {
-            return Kernel.AConsole;
+            return Aura_OS.Kernel.AConsole;
         }
 
         public static ConsoleColor get_BackgroundColor()
@@ -274,7 +274,7 @@ namespace Aura_OS.System.Shell
                 // for now:
                 return 25;
             }
-            return GetConsole().Rows;
+            return GetConsole().Cols;
         }
 
         public static void set_WindowHeight(int value)
@@ -312,7 +312,7 @@ namespace Aura_OS.System.Shell
                 // for now:
                 return 85;
             }
-            return GetConsole().Cols;
+            return GetConsole().Rows;
         }
 
         public static void set_WindowWidth(int value)
@@ -475,7 +475,7 @@ namespace Aura_OS.System.Shell
                     }
                     else
                     {
-                        Kernel.speaker.beep();
+                        Aura_OS.Kernel.speaker.beep();
                     }
                     continue;
                 }
@@ -517,7 +517,7 @@ namespace Aura_OS.System.Shell
                                 currentCount = 0;
                                 chars.Clear();
 
-                                Kernel.BeforeCommand();
+                                Aura_OS.Kernel.BeforeCommand();
 
                                 foreach (char chr in c)
                                 {
@@ -539,7 +539,7 @@ namespace Aura_OS.System.Shell
                         currentCount = 0;
                         chars.Clear();
 
-                        Kernel.BeforeCommand();
+                        Aura_OS.Kernel.BeforeCommand();
                     }
                 }
                 else if (current.Key == ConsoleKeyEx.UpArrow) //COMMAND HISTORY UP
@@ -553,7 +553,7 @@ namespace Aura_OS.System.Shell
                             currentCount = 0;
                             chars.Clear();
 
-                            Kernel.BeforeCommand();
+                            Aura_OS.Kernel.BeforeCommand();
 
                             string Command = Cosmos.System.Console.commands[CommandsHistory.CHIndex];
                             CommandsHistory.CHIndex = CommandsHistory.CHIndex - 1;
@@ -591,7 +591,7 @@ namespace Aura_OS.System.Shell
                                         Write(chars[x]);
                                     }
 
-                                    Kernel.AConsole.X -= (chars.Count - currentCount) - 1;
+                                    Aura_OS.Kernel.AConsole.X -= (chars.Count - currentCount) - 1;
                                     currentCount++;
                                 }
 
@@ -611,7 +611,7 @@ namespace Aura_OS.System.Shell
                             currentCount = 0;
                             chars.Clear();
 
-                            Kernel.BeforeCommand();
+                            Aura_OS.Kernel.BeforeCommand();
 
                             CommandsHistory.CHIndex = CommandsHistory.CHIndex + 1;
 
@@ -656,7 +656,7 @@ namespace Aura_OS.System.Shell
                                         Write(chars[x]);
                                     }
 
-                                    Kernel.AConsole.X -= (chars.Count - currentCount) - 1;
+                                    Aura_OS.Kernel.AConsole.X -= (chars.Count - currentCount) - 1;
                                     currentCount++;
                                 }
 
